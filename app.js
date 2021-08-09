@@ -38,12 +38,16 @@ checkButton.addEventListener("click", () => {
 
   console.log(dateSum);
   console.log(finalNumber);
+  if (inputNumber === "" || inputDate === "") {
+    display.textContent = `Can not Empty`;
+    return;
+  }
   if (dateSum < inputNumber) {
     display.textContent = "You Number Exceding your DOB";
   } else if (finalNumber % 2 === 0) {
-    display.textContent = "Sorry Your DOB is not Lucky in this App";
+    display.textContent = "Oops! Your Date Of Birth is not Lucky";
   } else {
-    display.textContent = "Wow!! You DOB is Lucky in this App";
+    display.textContent = "Wow!! Your Date Of Birth is Lucky";
   }
 });
 
