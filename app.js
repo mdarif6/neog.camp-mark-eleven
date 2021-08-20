@@ -30,24 +30,26 @@ checkButton.addEventListener("click", () => {
   let inputDate = dob.value;
   let date = new Date(inputDate);
   let year = date.getFullYear();
-  let month = date.getMonth();
+  let month = date.getMonth() + 1;
   let dayDate = date.getDate();
   let dateSum = year + month + dayDate;
 
-  let finalNumber = dateSum % inputNumber;
+  console.log(year, month, dayDate, dateSum);
+
+  // let finalNumber = dateSum % inputNumber;
 
   console.log(dateSum);
-  console.log(finalNumber);
+  // console.log(finalNumber);
   if (inputNumber === "" || inputDate === "") {
     display.textContent = `Can not Empty`;
     return;
   }
   if (dateSum < inputNumber) {
     display.textContent = "You Number Exceding your DOB";
-  } else if (finalNumber % 2 === 0) {
-    display.textContent = "Oops! Your Date Of Birth is not Lucky";
+  } else if (dateSum % inputNumber === 0) {
+    display.textContent = " Your Date Of Birth is Lucky";
   } else {
-    display.textContent = "Wow!! Your Date Of Birth is Lucky";
+    display.textContent = "Oops! Your Date Of Birth is not  Lucky";
   }
 });
 
